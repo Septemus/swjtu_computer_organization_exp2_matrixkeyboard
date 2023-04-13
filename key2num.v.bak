@@ -1,0 +1,4 @@
+module key2num(KEY_R,KEY_C,ins_num);
+	input [3:0] KEY_R,KEY_C;
+	
+endmodule

@@ -1,0 +1,59 @@
+|EXP2
+clk => clk.IN1
+KEY_R[0] => KEY_R[0].IN1
+KEY_R[1] => KEY_R[1].IN1
+KEY_R[2] => KEY_R[2].IN1
+KEY_R[3] => KEY_R[3].IN1
+KEY_C[0] <= KEY_C[0].DB_MAX_OUTPUT_PORT_TYPE
+KEY_C[1] <= KEY_C[1].DB_MAX_OUTPUT_PORT_TYPE
+KEY_C[2] <= KEY_C[2].DB_MAX_OUTPUT_PORT_TYPE
+KEY_C[3] <= KEY_C[3].DB_MAX_OUTPUT_PORT_TYPE
+out[0] <= out[0].DB_MAX_OUTPUT_PORT_TYPE
+out[1] <= out[1].DB_MAX_OUTPUT_PORT_TYPE
+out[2] <= out[2].DB_MAX_OUTPUT_PORT_TYPE
+out[3] <= out[3].DB_MAX_OUTPUT_PORT_TYPE
+ins_num[0] <= key2num:k2n.port3
+ins_num[1] <= key2num:k2n.port3
+ins_num[2] <= key2num:k2n.port3
+ins_num[3] <= key2num:k2n.port3
+codeout[0] <= segment_displays:sg.port1
+codeout[1] <= segment_displays:sg.port1
+codeout[2] <= segment_displays:sg.port1
+codeout[3] <= segment_displays:sg.port1
+codeout[4] <= segment_displays:sg.port1
+codeout[5] <= segment_displays:sg.port1
+codeout[6] <= segment_displays:sg.port1
+codeout[7] <= segment_displays:sg.port1
+
+
+|EXP2|key2num:k2n
+clk => ~NO_FANOUT~
+KEY_R[0] => Decoder0.IN3
+KEY_R[1] => Decoder0.IN2
+KEY_R[2] => Decoder0.IN1
+KEY_R[3] => Decoder0.IN0
+KEY_C[0] => Decoder0.IN7
+KEY_C[1] => Decoder0.IN6
+KEY_C[2] => Decoder0.IN5
+KEY_C[3] => Decoder0.IN4
+ins_num[0] <= ins_num[0]$latch.DB_MAX_OUTPUT_PORT_TYPE
+ins_num[1] <= ins_num[1]$latch.DB_MAX_OUTPUT_PORT_TYPE
+ins_num[2] <= ins_num[2]$latch.DB_MAX_OUTPUT_PORT_TYPE
+ins_num[3] <= ins_num[3]$latch.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|EXP2|segment_displays:sg
+num[0] => Decoder0.IN3
+num[1] => Decoder0.IN2
+num[2] => Decoder0.IN1
+num[3] => Decoder0.IN0
+seg[0] <= WideOr6.DB_MAX_OUTPUT_PORT_TYPE
+seg[1] <= WideOr5.DB_MAX_OUTPUT_PORT_TYPE
+seg[2] <= WideOr4.DB_MAX_OUTPUT_PORT_TYPE
+seg[3] <= WideOr3.DB_MAX_OUTPUT_PORT_TYPE
+seg[4] <= WideOr2.DB_MAX_OUTPUT_PORT_TYPE
+seg[5] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
+seg[6] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
+seg[7] <= <GND>
+
+
