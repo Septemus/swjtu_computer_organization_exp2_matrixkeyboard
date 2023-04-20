@@ -1,23 +1,6 @@
-module segment_displays(clk,N,seg,sel);
-	input clk;
-	input [31:0] N;
+module segment_displays(num,seg);
+	input [3:0] num;
 	output reg [7:0] seg;
-	output reg [2:0] sel;
-	reg [3:0]num;
-	always@(posedge clk)
-	begin
-		sel<=sel+1;
-		case(sel)
-			3'b110:num<=N[3:0];
-			3'b101:num<=N[7:4];
-			3'b100:num<=N[11:8];
-			3'b011:num<=N[15:12];
-			3'b010:num<=N[19:16];
-			3'b001:num<=N[23:20];
-			3'b000:num<=N[27:24];
-			3'b111:num<=N[31:28];
-		endcase
-	end
 	always@(num)
 	begin
 		case(num)
@@ -37,7 +20,7 @@ module segment_displays(clk,N,seg,sel);
 			4'b1101:seg<=8'b01011110;	//"d"
 			4'b1110:seg<=8'b01111001;	//"E"
 			4'b1111:seg<=8'b01110001;	//"F"
-			default:seg<=8'b00000000;	//"dark"
+			default:seg<=8'b00111111;	//"0"
 		endcase
 	end
 endmodule

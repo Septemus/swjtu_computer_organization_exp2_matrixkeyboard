@@ -5,14 +5,16 @@ module EXP2(
 	KEY_C,
 	out,
 	ins_num,
-	codeout
+	codeout,
+	sel
 );
 	input clk;
 	input [3:0] KEY_R;
 	output reg[3:0] KEY_C = 4'b0111;
-	output reg[3:0] out= 4'b0000;
+	output reg[31:0] out= 32'h0000_0000;
 	output [3:0] ins_num;
 	output [7:0] codeout;
+	output wire[2:0] sel;
 	reg [31:0]timer = 32'b1;
 	reg [1:0] state_machine = 2'b0;
 	reg valid_input=1;
@@ -40,11 +42,12 @@ begin
 				begin
 					timer = 32'b1;
 					//置数没有在冷却阶段
+					out=out<<4;
 					out[3:0] = ins_num[3:0];
 				end
 			end
 		
 end
 key2num k2n(clk,KEY_R,KEY_C,ins_num);
-segment_displays sg(out,codeout);
+segment_displays sg(clk,out,codeout,sel);
 endmodule   

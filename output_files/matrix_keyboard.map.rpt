@@ -1,5 +1,5 @@
 Analysis & Synthesis report for matrix_keyboard
-Thu Apr 13 08:11:23 2023
+Thu Apr 20 10:56:50 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -14,12 +14,13 @@ Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. User-Specified and Inferred Latches
-  9. General Register Statistics
- 10. Inverted Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Elapsed Time Per Partition
- 13. Analysis & Synthesis Messages
- 14. Analysis & Synthesis Suppressed Messages
+  9. Registers Removed During Synthesis
+ 10. General Register Statistics
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Elapsed Time Per Partition
+ 14. Analysis & Synthesis Messages
+ 15. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -45,16 +46,16 @@ applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Apr 13 08:11:23 2023       ;
+; Analysis & Synthesis Status        ; Successful - Thu Apr 20 10:56:50 2023       ;
 ; Quartus II 64-Bit Version          ; 13.1.0 Build 162 10/23/2013 SJ Full Version ;
 ; Revision Name                      ; matrix_keyboard                             ;
 ; Top-level Entity Name              ; EXP2                                        ;
 ; Family                             ; Cyclone III                                 ;
-; Total logic elements               ; 128                                         ;
-;     Total combinational functions  ; 128                                         ;
-;     Dedicated logic registers      ; 42                                          ;
-; Total registers                    ; 42                                          ;
-; Total pins                         ; 25                                          ;
+; Total logic elements               ; 177                                         ;
+;     Total combinational functions  ; 149                                         ;
+;     Dedicated logic registers      ; 75                                          ;
+; Total registers                    ; 75                                          ;
+; Total pins                         ; 56                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -182,28 +183,28 @@ applicable agreement for further details.
 +---------------------------------------------+-----------+
 ; Resource                                    ; Usage     ;
 +---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 128       ;
+; Estimated Total logic elements              ; 177       ;
 ;                                             ;           ;
-; Total combinational functions               ; 128       ;
+; Total combinational functions               ; 149       ;
 ; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 43        ;
-;     -- 3 input functions                    ; 20        ;
+;     -- 4 input functions                    ; 59        ;
+;     -- 3 input functions                    ; 25        ;
 ;     -- <=2 input functions                  ; 65        ;
 ;                                             ;           ;
 ; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 97        ;
+;     -- normal mode                          ; 118       ;
 ;     -- arithmetic mode                      ; 31        ;
 ;                                             ;           ;
-; Total registers                             ; 42        ;
-;     -- Dedicated logic registers            ; 42        ;
+; Total registers                             ; 75        ;
+;     -- Dedicated logic registers            ; 75        ;
 ;     -- I/O registers                        ; 0         ;
 ;                                             ;           ;
-; I/O pins                                    ; 25        ;
+; I/O pins                                    ; 56        ;
 ; Embedded Multiplier 9-bit elements          ; 0         ;
 ; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 42        ;
-; Total fan-out                               ; 523       ;
-; Average fan-out                             ; 2.38      ;
+; Maximum fan-out                             ; 75        ;
+; Total fan-out                               ; 758       ;
+; Average fan-out                             ; 2.26      ;
 +---------------------------------------------+-----------+
 
 
@@ -212,9 +213,9 @@ applicable agreement for further details.
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+--------------+
 ; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name       ; Library Name ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+--------------+
-; |EXP2                      ; 128 (90)          ; 42 (42)      ; 0           ; 0            ; 0       ; 0         ; 25   ; 0            ; |EXP2                     ; work         ;
+; |EXP2                      ; 149 (90)          ; 75 (70)      ; 0           ; 0            ; 0       ; 0         ; 56   ; 0            ; |EXP2                     ; work         ;
 ;    |key2num:k2n|           ; 31 (31)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |EXP2|key2num:k2n         ; work         ;
-;    |segment_displays:sg|   ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |EXP2|segment_displays:sg ; work         ;
+;    |segment_displays:sg|   ; 28 (28)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |EXP2|segment_displays:sg ; work         ;
 +----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -233,17 +234,28 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Note: All latches listed above may not be present at the end of synthesis due to various synthesis optimizations.
 
 
++----------------------------------------------------------------------+
+; Registers Removed During Synthesis                                   ;
++---------------------------------------+------------------------------+
+; Register name                         ; Reason for Removal           ;
++---------------------------------------+------------------------------+
+; segment_displays:sg|sel[0]            ; Merged with state_machine[0] ;
+; segment_displays:sg|sel[1]            ; Merged with state_machine[1] ;
+; Total Number of Removed Registers = 2 ;                              ;
++---------------------------------------+------------------------------+
+
+
 +------------------------------------------------------+
 ; General Register Statistics                          ;
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 42    ;
+; Total registers                              ; 75    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 35    ;
+; Number of registers using Clock Enable       ; 63    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -261,13 +273,14 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------------------------------+---------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |EXP2|timer[1]             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
+; 3:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |EXP2|timer[18]                  ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 20 LEs               ; 0 LEs                  ; Yes        ; |EXP2|segment_displays:sg|num[2] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------------+
 
 
 +-------------------------------+
@@ -275,7 +288,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -285,7 +298,7 @@ Note: All latches listed above may not be present at the end of synthesis due to
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-    Info: Processing started: Thu Apr 13 08:11:21 2023
+    Info: Processing started: Thu Apr 20 10:56:47 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off matrix_keyboard -c matrix_keyboard
 Info (11104): Parallel Compilation has detected 8 hyper-threaded processors. However, the extra hyper-threaded processors will not be used by default. Parallel Compilation will use 4 of the 4 physical processors detected instead.
 Info (12021): Found 1 design units, including 1 entities, in source file segment_displays.v
@@ -294,6 +307,8 @@ Info (12021): Found 1 design units, including 1 entities, in source file exp2.v
     Info (12023): Found entity 1: EXP2
 Info (12021): Found 1 design units, including 1 entities, in source file key2num.v
     Info (12023): Found entity 1: key2num
+Info (12021): Found 1 design units, including 1 entities, in source file exp2_tb.v
+    Info (12023): Found entity 1: exp2_tb
 Info (12127): Elaborating entity "EXP2" for the top level hierarchy
 Info (12128): Elaborating entity "key2num" for hierarchy "key2num:k2n"
 Warning (10270): Verilog HDL Case Statement warning at key2num.v(6): incomplete case statement has no default case item
@@ -303,6 +318,7 @@ Info (10041): Inferred latch for "ins_num[1]" at key2num.v(6)
 Info (10041): Inferred latch for "ins_num[2]" at key2num.v(6)
 Info (10041): Inferred latch for "ins_num[3]" at key2num.v(6)
 Info (12128): Elaborating entity "segment_displays" for hierarchy "segment_displays:sg"
+Warning (10230): Verilog HDL assignment warning at segment_displays.v(9): truncated value with size 32 to match size of target (3)
 Warning (13012): Latch key2num:k2n|ins_num[0] has unsafe behavior
     Warning (13013): Ports D and ENA on the latch are fed by the same signal KEY_C[1]~reg0
 Warning (13012): Latch key2num:k2n|ins_num[1] has unsafe behavior
@@ -317,15 +333,15 @@ Info (286030): Timing-Driven Synthesis is running
 Info (144001): Generated suppressed messages file C:/Computer_Organization/exp2_2/output_files/matrix_keyboard.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 157 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 237 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 5 input pins
-    Info (21059): Implemented 20 output pins
-    Info (21061): Implemented 132 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 12 warnings
+    Info (21059): Implemented 51 output pins
+    Info (21061): Implemented 181 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 13 warnings
     Info: Peak virtual memory: 4643 megabytes
-    Info: Processing ended: Thu Apr 13 08:11:23 2023
-    Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:01
+    Info: Processing ended: Thu Apr 20 10:56:50 2023
+    Info: Elapsed time: 00:00:03
+    Info: Total CPU time (on all processors): 00:00:02
 
 
 +------------------------------------------+

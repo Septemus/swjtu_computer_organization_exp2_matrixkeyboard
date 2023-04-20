@@ -1,5 +1,5 @@
 EDA Netlist Writer report for matrix_keyboard
-Thu Apr 13 08:11:43 2023
+Thu Apr 20 10:57:31 2023
 Quartus II 64-Bit Version 13.1.0 Build 162 10/23/2013 SJ Full Version
 
 
@@ -36,7 +36,7 @@ applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Thu Apr 13 08:11:43 2023 ;
+; EDA Netlist Writer Status ; Successful - Thu Apr 20 10:57:31 2023 ;
 ; Revision Name             ; matrix_keyboard                       ;
 ; Top-level Entity Name     ; EXP2                                  ;
 ; Family                    ; Cyclone III                           ;
@@ -88,7 +88,7 @@ applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit EDA Netlist Writer
     Info: Version 13.1.0 Build 162 10/23/2013 SJ Full Version
-    Info: Processing started: Thu Apr 13 08:11:42 2023
+    Info: Processing started: Thu Apr 20 10:57:30 2023
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off matrix_keyboard -c matrix_keyboard
 Info (204019): Generated file matrix_keyboard_8_1200mv_85c_slow.vho in folder "C:/Computer_Organization/exp2_2/simulation/modelsim/" for EDA simulation tool
 Info (204019): Generated file matrix_keyboard_8_1200mv_0c_slow.vho in folder "C:/Computer_Organization/exp2_2/simulation/modelsim/" for EDA simulation tool
@@ -99,9 +99,9 @@ Info (204019): Generated file matrix_keyboard_8_1200mv_0c_vhd_slow.sdo in folder
 Info (204019): Generated file matrix_keyboard_min_1200mv_0c_vhd_fast.sdo in folder "C:/Computer_Organization/exp2_2/simulation/modelsim/" for EDA simulation tool
 Info (204019): Generated file matrix_keyboard_vhd.sdo in folder "C:/Computer_Organization/exp2_2/simulation/modelsim/" for EDA simulation tool
 Info: Quartus II 64-Bit EDA Netlist Writer was successful. 0 errors, 0 warnings
-    Info: Peak virtual memory: 4574 megabytes
-    Info: Processing ended: Thu Apr 13 08:11:43 2023
-    Info: Elapsed time: 00:00:01
-    Info: Total CPU time (on all processors): 00:00:00
+    Info: Peak virtual memory: 4578 megabytes
+    Info: Processing ended: Thu Apr 20 10:57:32 2023
+    Info: Elapsed time: 00:00:02
+    Info: Total CPU time (on all processors): 00:00:01
 
 
