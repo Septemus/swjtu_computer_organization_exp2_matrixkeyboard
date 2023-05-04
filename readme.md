@@ -191,8 +191,6 @@ endmodule
 
 > # 4 仿真波形
 
-{{< admonition type=note title="" open=false >}}
 由于设计的防抖模块会造成out和codeout信号延迟输出，此处仅关注ins_num的值
-{{< /admonition >}}
 
 <img src="/images/wvf2.png" width="80%">
